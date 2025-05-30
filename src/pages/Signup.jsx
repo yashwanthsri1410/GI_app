@@ -4,11 +4,10 @@ import axios from "axios";
 
 export default function Signup() {
   const [form, setForm] = useState({
-    name: "",
+    username: "",
     age: "",
     email: "",
     password: "",
-    username: "",
     usertype: "1", // default to 1
   });
 
@@ -16,6 +15,7 @@ export default function Signup() {
     setForm({ ...form, [e.target.name]: e.target.value });
 
 const handleSubmit = async (e) => {
+  console.log(form)
   e.preventDefault();
   try {
     const response = await axios.post("http://localhost:5002/register", form);
